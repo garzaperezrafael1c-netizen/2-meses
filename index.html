@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2 Meses Juntos 💜</title>
+  
+  <!-- Tipografía bonita -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #2e0854 0%, #581c87 50%, #7e22ce 100%);
+      color: #ffffff;
+      padding: 30px 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 500px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 24px;
+      padding: 35px 22px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #e9d5ff;
+      margin-bottom: 10px;
+    }
+
+    /* Contador */
+    #timer {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 15px 0;
+    }
+
+    .time-box {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(233, 213, 255, 0.2);
+    }
+
+    .time-number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #f43f5e;
+    }
+
+    .time-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: #d8b4fe;
+    }
+
+    .sub-header {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f3e8ff;
+      margin-bottom: 25px;
+    }
+
+    /* Imagen */
+    .photo-wrapper {
+      margin: 25px 0;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+
+    .photo-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Preguntas y Opciones */
+    .section-question {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 25px 0 15px;
+      color: #ffffff;
+    }
+
+    .options-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .option-btn {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 14px 16px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+      color: #f3e8ff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .option-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .option-btn.selected {
+      background: #f43f5e;
+      border-color: #fda4af;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Botón WhatsApp */
+    .send-btn {
+      width: 100%;
+      background: #25d366;
+      color: #ffffff;
+      border: none;
+      padding: 16px;
+      border-radius: 16px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-top: 30px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .send-btn:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="header-title">ESTAMOS A</div>
+    
+    <!-- Contador para el 1 de Octubre -->
+    <div id="timer">
+      <div class="time-box"><div class="time-number" id="hours">00</div><div class="time-label">Horas</div></div>
+      <div class="time-box"><div class="time-number" id="minutes">00</div><div class="time-label">Min</div></div>
+      <div class="time-box"><div class="time-number" id="seconds">00</div><div class="time-label">Seg</div></div>
+    </div>
+
+    <div class="sub-header">para cumplir 2 meses juntos</div>
+
+    <!-- Foto -->
+    <div class="photo-wrapper">
+      <img src="imagen.jpg" alt="Nosotros" onerror="this.src='imagen.jpeg'">
+    </div>
+
+    <!-- Pregunta 1: Plan Principal (1 opción) -->
+    <div class="section-question">Para llevar a cabo dicha celebración, ¿qué deseas?</div>
+    <div class="options-group" id="plan-group">
+      <div class="option-btn" onclick="selectPlan(this, 'Ir a cenar un ramen')">🍜 Ir a cenar un ramen</div>
+      <div class="option-btn" onclick="selectPlan(this, 'Estar en casa, pedir de cenar y terminar de ver Toy Story 5')">🎬 Estar en casa, pedir de cenar y terminar de ver Toy Story 5</div>
+      <div class="option-btn" onclick="selectPlan(this, 'Ir por un sushi')">🍣 Ir por un sushi</div>
+    </div>
+
+    <!-- Pregunta 2: Complementos (Hasta 3) -->
+    <div class="section-question">¿Con qué lo quieres complementar? (Elige hasta 3)</div>
+    <div class="options-group" id="extras-group">
+      <div class="option-btn" onclick="toggleExtra(this, 'Masaje completo')">💆‍♀️ Masaje completo</div>
+      <div class="option-btn" onclick="toggleExtra(this, 'Un pequeño karaoke juntos')">🎤 Un pequeño karaoke juntos</div>
+      <div class="option-btn" onclick="toggleExtra(this, 'Pintarle la espalda a tu novio con plumones')">🎨 Que le pintes la espalda a tu novio con plumones</div>
+      <div class="option-btn" onclick="toggleExtra(this, 'Un baile erótico de tu novio')">🕺 Un baile erótico de tu novio</div>
+      <div class="option-btn" onclick="toggleExtra(this, 'Luchitas en la cama')">🤼‍♀️ Luchitas en la cama</div>
+      <div class="option-btn" onclick="toggleExtra(this, 'Jugar Roblox juntos')">🎮 Jugar Roblox juntos</div>
+    </div>
+
+    <!-- Botón Enviar -->
+    <button class="send-btn" onclick="sendWhatsApp()">Enviar respuesta por WhatsApp 💌</button>
+
+  </div>
+
+  <script>
+    // Configuración del Contador (1 de Octubre)
+    const targetDate = new Date("October 1, 2026 00:00:00").getTime();
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+        document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+        document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+      } else {
+        document.getElementById("timer").innerHTML = "<div class='time-number' style='color:#22c55e;'>¡Llegó el día! 🎉</div>";
+      }
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // Lógica de Selección
+    let selectedPlan = "";
+    let selectedExtras = [];
+
+    function selectPlan(element, text) {
+      const parent = element.parentElement;
+      Array.from(parent.children).forEach(child => child.classList.remove('selected'));
+      element.classList.add('selected');
+      selectedPlan = text;
+    }
+
+    function toggleExtra(element, text) {
+      if (element.classList.contains('selected')) {
+        element.classList.remove('selected');
+        selectedExtras = selectedExtras.filter(item => item !== text);
+      } else {
+        if (selectedExtras.length < 3) {
+          element.classList.add('selected');
+          selectedExtras.push(text);
+        } else {
+          alert("Solo puedes elegir hasta 3 complementos 😉");
+        }
+      }
+    }
+
+    // Enviar a WhatsApp
+    function sendWhatsApp() {
+      if (!selectedPlan) {
+        alert("Por favor elige la opción principal para la celebración ❤️");
+        return;
+      }
+
+      let message = `¡Hola mi amor! 💕 Ya elegí para nuestra celebración de 2 meses:\n\n`;
+      message += `📌 *Plan principal:* ${selectedPlan}\n`;
+      
+      if (selectedExtras.length > 0) {
+        message += `✨ *Complementos:* \n - ` + selectedExtras.join("\n - ");
+      } else {
+        message += `✨ *Complementos:* Ninguno en específico, ¡sorpréndeme!`;
+      }
+
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://wa.me/528134505740?text=${encodedMessage}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
